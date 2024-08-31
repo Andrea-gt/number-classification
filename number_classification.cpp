@@ -146,9 +146,6 @@ void quickSort(int* numbers, int low, int high) {
  * @return int Returns 0 upon successful execution.
  */
 int main(int argc, char* argv[]) {
-    // Record the start time
-    auto start = high_resolution_clock::now();
-
     srand(time(0));  // Seed the random number generator with the current time
 
     // Determine the number of integers to generate
@@ -170,6 +167,9 @@ int main(int argc, char* argv[]) {
     // Dynamically allocate memory for the array
     int* numbers = new int[n];  
     
+    // Record the start time
+    auto start = high_resolution_clock::now();
+
     // Generate random numbers
     generate_random_numbers(numbers, n);
     
@@ -187,15 +187,15 @@ int main(int argc, char* argv[]) {
 
     }
 
-    // Clean up dynamically allocated memory
-    delete[] numbers;
-
     // Record the end time
     auto end = high_resolution_clock::now();
 
     // Calculate the elapsed time in seconds as a double
     duration<double> execution_time = (end - start);
     cout << "Execution time: " << execution_time.count() << " seconds" << endl;
+
+    // Clean up dynamically allocated memory
+    delete[] numbers;
     
     return 0;  // Indicate that the program ended successfully
 }
