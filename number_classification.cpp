@@ -165,6 +165,8 @@ int main(int argc, char* argv[]) {
         }
     }
 
+    cout << "Generating " << n << " random integers" << endl;
+
     // Dynamically allocate memory for the array
     int* numbers = new int[n];  
     
@@ -192,8 +194,8 @@ int main(int argc, char* argv[]) {
     auto end = high_resolution_clock::now();
 
     // Calculate and display the elapsed time
-    auto duration = duration_cast<milliseconds>(end - start);
-    cout << "Execution time: " << duration.count() << " milliseconds" << endl;
+    auto duration = duration_cast<microseconds>(end - start);
+    cout << "Execution time: " << duration.count() << " microseconds" << endl;
     
     return 0;  // Indicate that the program ended successfully
 }
